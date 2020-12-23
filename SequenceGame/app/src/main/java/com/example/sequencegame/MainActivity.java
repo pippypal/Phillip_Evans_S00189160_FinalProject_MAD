@@ -25,12 +25,17 @@ public class MainActivity extends AppCompatActivity {
     int sequenceCount = 4, rand = 0;
     int[] gameSequence = new int[120];
     int arrayIndex = 0;
+    int time = 6000;
+    int interval = 1500;
 
-    CountDownTimer ct = new CountDownTimer(6000,  1500)
+    CountDownTimer ct = new CountDownTimer(time,  interval)
     {
 
         public void onTick(long millisUntilFinished) {
             oneButton();
+            Bundle b = getIntent().getExtras();
+            interval  += b.getInt("interval");
+            int score = b.getInt("score");
         }
 
         @Override
