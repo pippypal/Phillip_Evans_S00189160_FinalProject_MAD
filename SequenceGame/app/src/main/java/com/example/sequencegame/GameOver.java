@@ -22,6 +22,10 @@ public class GameOver extends AppCompatActivity {
         name = findViewById(R.id.etName);
         userScore = findViewById(R.id.tvGameScore);
 
+        Bundle b = getIntent().getExtras();
+        score  = b.getInt("score");
+        userScore.setText(score);
+
     }
 
     public void showScore(View view)

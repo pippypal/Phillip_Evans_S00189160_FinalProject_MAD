@@ -23,6 +23,7 @@ public class Game extends AppCompatActivity implements SensorEventListener {
     boolean loss = false;
     boolean win = false;
     int score = 0;
+    int interval = 0;
     Button bBlue, bRed, bYellow, bGreen;
     private SensorManager mSensorManager;
     private Sensor mSensor;
@@ -39,7 +40,7 @@ public class Game extends AppCompatActivity implements SensorEventListener {
         bRed = findViewById(R.id.BtnRed);
         bYellow = findViewById(R.id.BtnYellow);
         bGreen = findViewById(R.id.BtnGreen);
-        
+
     }
 
     protected void onResume() {
@@ -99,9 +100,12 @@ public class Game extends AppCompatActivity implements SensorEventListener {
 
         if (win == true)
         {
+
             Intent start = new Intent(this, MainActivity.class);
             start.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            interval -= 500;
             Bundle b = new Bundle();
+            b.putInt("interval", interval);
             b.putInt("score", score);
             startActivity(start);
         }
