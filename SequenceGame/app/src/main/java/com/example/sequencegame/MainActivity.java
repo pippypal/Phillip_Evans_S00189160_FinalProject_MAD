@@ -33,9 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         public void onTick(long millisUntilFinished) {
             oneButton();
-            Bundle b = getIntent().getExtras();
-            interval  += b.getInt("interval");
-            int score = b.getInt("score");
+
         }
 
         @Override
@@ -65,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
     public void doPlay(View view)
     {
         ct.start();
+//        Bundle b = getIntent().getExtras();
+//        interval  += b.getInt("interval");
+//        int score = b.getInt("score");
     }
 
     private void oneButton() {

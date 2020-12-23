@@ -10,6 +10,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.Button;
 
 public class Game extends AppCompatActivity implements SensorEventListener {
@@ -89,26 +90,26 @@ public class Game extends AppCompatActivity implements SensorEventListener {
             flashButton(bGreen);
         }
 
-        if (loss == false)
-        {
-            Intent over = new Intent(this, GameOver.class);
-            Bundle b = new Bundle();
-            b.putInt("score", score);
-            over.putExtras(b);
-            startActivity(over);
-        }
-
-        if (win == true)
-        {
-
-            Intent start = new Intent(this, MainActivity.class);
-            start.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            interval -= 500;
-            Bundle b = new Bundle();
-            b.putInt("interval", interval);
-            b.putInt("score", score);
-            startActivity(start);
-        }
+//        if (loss == false)
+//        {
+//            Intent over = new Intent(this, GameOver.class);
+//            Bundle b = new Bundle();
+//            b.putInt("score", score);
+//            over.putExtras(b);
+//            startActivity(over);
+//        }
+//
+//        if (win == true)
+//        {
+//
+//            Intent start = new Intent(this, MainActivity.class);
+//            start.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//            interval -= 500;
+//            Bundle b = new Bundle();
+//            b.putInt("interval", interval);
+//            b.putInt("score", score);
+//            startActivity(start);
+//        }
     }
 
     @Override
@@ -140,5 +141,15 @@ public class Game extends AppCompatActivity implements SensorEventListener {
             handler1.postDelayed(r1, 400);
         };
         handler.postDelayed(r, 400);
+    }
+
+    public void next(View view)
+    {
+        int testScore = 35;
+        Intent over = new Intent(this, GameOver.class);
+//        Bundle b = new Bundle();
+//        b.putInt("testScore", testScore);
+//        over.putExtras(b);
+        startActivity(over);
     }
 }

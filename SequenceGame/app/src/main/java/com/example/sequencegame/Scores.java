@@ -132,7 +132,6 @@ public class Scores extends AppCompatActivity {
 
     public void Quit(View view)
     {
-        finish();
         System.exit(0);
     }
 }
